@@ -2,6 +2,8 @@ require 'sinatra'
 require 'sinatra/reloader' if env.development?
 require ''
 
+@questions = ['who', 'what', 'where']
+
 get '/' do
-	'heyy'
+	@question = @questions.sample
 end 
