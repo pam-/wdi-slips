@@ -1,9 +1,6 @@
 require 'sinatra'
-require 'sinatra/reloader' if env.development?
-require ''
-
-@questions = ['who', 'what', 'where']
+require 'sinatra/reloader'
 
 get '/' do
-	@question = @questions.sample
+	erb :index
 end 
