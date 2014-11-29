@@ -52,7 +52,7 @@ class QuestionsController < ApplicationController
 		if object.save
 			respond_to do |format|
 				format.html { redirect_to topic_path(object) }
-				format.json { json: object }
+				format.json { render json: object }
 			end
 		else
 			respond_to do |format|

@@ -1,0 +1,7 @@
+<% if current_user.admin %>
+	<button> <%= link_to 'Slips', '#'%> </button>
+<% end %>
+
+<button> <%= link_to 'Review Questions', questions_path %> </button>
+
+<button> <%= link_to 'Learning Objectives', topics_path%> </button>

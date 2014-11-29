@@ -2,16 +2,16 @@
 <html>
 <head>
   <title>Slips</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 	<header>
-		<h1> wdidc-4 </h1>
+		<h1> <%= link_to 'wdidc-4', '/' %> </h1>
 	</header>
-	<section>
+	<section class="<%= controller_name %> <%= action_name%>">
 		<%= yield %>
 	</section>
 

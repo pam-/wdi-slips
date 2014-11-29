@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'topics#index'
+  root 'static_pages#home'
 
-  devise_for :users  
+  devise_for :users, controllers: { registrations: 'registrations' } 
 
   resources :topics do
     resources :questions
