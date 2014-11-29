@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   end 
 
   resources :questions
+  resources :students, only: [:index]
+
+  get '/slips', to: 'questions#slips'
 end

@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
+
 	def index
-		@questions = Question.all
+		@questions = Question.where(topic_id: params[:topic_id])
 		respond_to do |format|
 			format.html
 			format.json { render json: @questions }
@@ -36,22 +37,16 @@ class QuestionsController < ApplicationController
 	def destroy
 		@question = Question.find(params[:id])
 		if @question.destroy
-			respond_to do |format|
-				format.html { redirect_to questions_path}
-				format.json {}
-			end 
+			render json: {}
 		else 
-			respond_to do |format|
-				format.html { redirect_to topic_path(@question) }
-				format.json { render status: 404 }
-			end			
+			render status: 404
 		end 
 	end
 
 	def saving(object)
 		if object.save
 			respond_to do |format|
-				format.html { redirect_to topic_path(object) }
+				format.html { redirect_to object.topic }
 				format.json { render json: object }
 			end
 		else
@@ -65,6 +60,6 @@ class QuestionsController < ApplicationController
 	private
 
 	def question_params
-		params.require(:question).permit(:content, :topic)
+		params.require(:question).permit(:content, :topic_id)
 	end
 end 
