@@ -1,5 +1,15 @@
 class QuestionsController < ApplicationController
 
+	def slips
+		@students = Student.all.shuffle
+		@questions = Question.all.shuffle.take(25)
+		@pairs = Question.make_pairs(@students, @questions)
+		respond_to do |format|
+			format.html
+			format.json { render json: { pairs: @pairs} }
+		end 
+	end
+
 	def index
 		@questions = Question.where(topic_id: params[:topic_id])
 		respond_to do |format|

@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
 	def index
 		@topics = Topic.all
+		@topic = Topic.new
 		respond_to do |format|
 			format.html
 			format.json { render json: @topics }
@@ -53,7 +54,7 @@ class TopicsController < ApplicationController
 	def saving(object)
 		if object.save
 			respond_to do |format|
-				format.html { redirect_to topic_path(object) }
+				format.html { redirect_to topics_path }
 				format.json { render json: object }
 			end
 		else
