@@ -18,6 +18,9 @@ $('.questions.slips').ready(function(){
 	}
 
 	$('button').on('click', function(){
+		if (n === pairs.length - 1) {
+			$(this).html('No more pairs!');
+		};
 		var pair = pairs[n]
 		n++
 		$('.pairs').html('<h1>' + pair.student + '</h1><p>' + pair.question.content + '</p>')

@@ -1,9 +1,59 @@
 html, body{
 	// background: red;
 	height: 100%;
+	font-family: "Avenir";
+	text-align: center;
+	a{
+		color: inherit;
+		text-decoration: none;
+		&:visited{
+			color: inherit;
+		}
+		&:hover{
+			color: $accent;
+		}
+	}
 }
 section{
-	height: 100%;
+	height: 80%;
+	width: 80%;
+	margin: 0 auto;
+}
+
+//header
+
+header{
+	padding: 5px;
+	h1{
+		font-weight: lighter;
+	}
+}
+
+// footer
+footer{
+	width: 80%;
+	margin: 0 auto;
+}
+
+//buttons
+button{
+	padding: 15px;
+	border: none;
+	border-radius: 20%;
+	background: $accent;
+	outline: none;
+	color: #fff;
+	font-weight: bolder;
+	// display: block; 
 }
 
 
+//details
+
+section{
+	.pairs{
+		p{
+			font-size: 25px;
+		}
+	}
+}
