@@ -39,6 +39,12 @@ footer{
 	margin: 0 auto;
 }
 
+.static_pages.home{
+	button{
+		margin: auto;
+	}
+}
+
 //buttons
 button{
 	padding: 15px;
@@ -48,7 +54,7 @@ button{
 	outline: none;
 	color: #fff;
 	font-weight: bolder;
-	display: block; 
+	display: inline-block; 
 }
 
 //details
@@ -71,11 +77,19 @@ section{
 	}
 }
 
+.questions-list{
+	div{
+		// margin-top: 80px;
+	}
+}
+
 //forms
-input, textarea{
-	display: block;
-	margin: 30px auto;
-	width: 500px;
+.left{
+	input, textarea{
+		display: block;
+		margin: 30px auto;
+		width: 500px;
+	}
 }
 
 textarea{
@@ -92,3 +106,4 @@ textarea{
 	float: right;
 	width: 50%;
 }
+

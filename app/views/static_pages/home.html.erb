@@ -6,3 +6,15 @@
 <!-- review questions will be users' posts equivalent -->
 
 <button> <%= link_to 'Learning Objectives', topics_path%> </button>
+
+<section class="questions-list">
+<h1> Latest Posts </h1>
+		<% @question.each do |question| %>
+			<div>
+				<h2><%= link_to question.title, question_path(question) %> <small> by <%= question.user %>  </small></h2>
+				<% question.tags.each do |tag| %> 
+					<small><%= link_to "##{tag.content}", tag_path(tag) %></small>  
+				<% end %> 
+			</div>
+		<% end %> 
+</section>

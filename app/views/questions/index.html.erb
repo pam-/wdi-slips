@@ -1,19 +1,21 @@
 <section class="left">
 	<%= form_for @question do |f| %> 
+	<%= f.hidden_field :user_id, value: current_user.id %> 
 	<%= f.text_field :title %> 
 	<%= f.text_area :content %> 
 	<%= f.text_field :tags, value: '', placeholder: 'tags' %> 
-	<%= f.submit %> 
+	<%= f.submit "Submit Question" %> 
 	<% end %>
 </section>  
 
 <section class="questions-list right">
+<h1> Your questions </h1>
 	<% @questions.each do |question| %> 
-		<p> 
+		<div>
 			<%= link_to question.title, question_path(question) %>
 				<% question.tags.each do |tag| %>  
 			 		<small> <%= link_to "##{tag.content}", tag_path(tag) %>  </small>
 				<% end %>  
-		 </p>
+		 </div>
 	<% end %> 
 </section> 

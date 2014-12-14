@@ -2,6 +2,7 @@ $('.questions.index').ready(function(){
 	$('form').on('submit', function(evt){
 		evt.preventDefault();
 		// console.log('saving question')
+		var userId = $('#question_user_id').val();
 		var title = $('#question_title').val();
 		var content = $('#question_content').val();
 		var tags = $('#question_tags').val();
@@ -11,6 +12,7 @@ $('.questions.index').ready(function(){
 			dataType: 'json',
 			data: {
 				question: {
+					user_id: userId,
 					title: title,
 					content: content,
 					tags: tags
@@ -20,7 +22,7 @@ $('.questions.index').ready(function(){
 				// console.log(data)
 				$('input[type="text"]').val(' ');
 				$('textarea').val(' ');
-				$('.questions-list').prepend('<p><a href="questions/' + data.id + '">' + title + '</a></p>')
+				$('.questions-list').prepend('<p><a href="questions/' + data.id + '">' + title + '</a></p>');
 			}
 		})
 	})
