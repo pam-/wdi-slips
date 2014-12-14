@@ -20,7 +20,7 @@ html, body{
 }
 section{
 	min-height: 100%;
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -69,4 +69,21 @@ section{
 			margin: 10px;
 		}
 	}
+}
+
+//forms
+input, textarea{
+	display: block;
+	margin: 30px auto;
+	width: 500px;
+}
+
+textarea{
+	height: 300px;
+}
+
+//floats
+.left{
+	float: left;
+	width: 50%;
 }

@@ -8,7 +8,7 @@ class Question < ActiveRecord::Base
   	worked = true
   	unformatted_tags = params[:tags]
   	tags = unformatted_tags.split(',').map { |tag| tag.gsub(/(['+\s])/, '') }
-  	question = Question.new(content: params[:content])
+  	question = Question.new(title: params[:title], content: params[:content])
   	if question.save
   		tags.each do |tag_content|
   			tag = Tag.new(content: tag_content)

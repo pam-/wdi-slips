@@ -1,9 +1,6 @@
 class TagsController < ApplicationController
-	def create
-		
-	end
-
-	def destroy
-		
-	end
+	def show
+		@tag = Tag.find(params[:id])
+		@questions = @tag.questions
+	end 
 end 

@@ -10,9 +10,7 @@ class QuestionsController < ApplicationController
 	end
 
 	def show
-		@question = question.find(params[:id])
-		@question = Question.new
-		@questions = @question.questions
+		@question = Question.find(params[:id])
 		respond_to do |format|
 			format.html
 			format.json { render json: @question }
@@ -79,6 +77,6 @@ class QuestionsController < ApplicationController
 	private
 
 	def question_params
-		params.require(:question).permit(:content, :tags).merge(user_id: current_user.id)
+		params.require(:question).permit(:title, :content, :tags).merge(user_id: current_user.id)
 	end
 end 
