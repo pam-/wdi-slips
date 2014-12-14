@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' } 
 
   resources :topics do
-    resources :questions
+    resources :objectives
   end 
 
+  resources :tags
   resources :questions
   resources :students, only: [:index]
 
-  get '/slips', to: 'questions#slips'
+  get '/slips', to: 'objectives#slips'
 end

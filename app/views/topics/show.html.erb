@@ -2,14 +2,14 @@
 
 <% if current_user.admin %> 
 	<form>
-		<input type="text" class="question-content" data-title="<%= @topic.id %> ">
+		<input type="text" class="objective-content" data-title="<%= @topic.id %> ">
 	</form>
 <% end %> 
 
-<div class="questions">
-	<% @questions.each do |question| %>
-		<p data-id="<%= question.id %> "> 
-			<%= question.content %>  <span class="delete">x</span>
+<div class="objectives">
+	<% @objectives.each do |objective| %>
+		<p data-id="<%= objective.id %> "> 
+			<%= objective.content %>  <span class="delete">x</span>
 		</p>
 	<% end %>	
 </div>

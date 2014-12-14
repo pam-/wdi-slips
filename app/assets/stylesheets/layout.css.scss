@@ -13,9 +13,13 @@ html, body{
 			color: $accent;
 		}
 	}
+	ul{
+		list-style: none;
+		padding-left: 0;
+	}
 }
 section{
-	height: 80%;
+	min-height: 100%;
 	width: 80%;
 	margin: 0 auto;
 }
@@ -39,21 +43,30 @@ footer{
 button{
 	padding: 15px;
 	border: none;
-	border-radius: 20%;
+	// border-radius: 20%;
 	background: $accent;
 	outline: none;
 	color: #fff;
 	font-weight: bolder;
-	// display: block; 
+	display: block; 
 }
 
-
 //details
-
 section{
 	.pairs{
 		p{
 			font-size: 25px;
+		}
+	}
+	.topics-list{
+		div{
+			width: 100px;
+			display: inline-block;
+			height: 100px;
+			border: 1px solid $accent;
+			border-radius: 100%;
+			padding: 30px;
+			margin: 10px;
 		}
 	}
 }

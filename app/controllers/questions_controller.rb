@@ -1,25 +1,18 @@
 class QuestionsController < ApplicationController
-
-	def slips
-		@students = Student.all.shuffle
-		@questions = Question.all.shuffle.take(25)
-		@pairs = Question.make_pairs(@students, @questions)
-		respond_to do |format|
-			format.html
-			format.json { render json: { pairs: @pairs} }
-		end 
-	end
-
+	before_action :authenticate_user!
 	def index
-		@questions = Question.where(topic_id: params[:topic_id])
+		@questions = Question.all
+		@question = Question.new
 		respond_to do |format|
 			format.html
-			format.json { render json: @questions }
+			format.json { render json: @question }
 		end
 	end
 
 	def show
-		@question = Question.find(params[:id])
+		@question = question.find(params[:id])
+		@question = Question.new
+		@questions = @question.questions
 		respond_to do |format|
 			format.html
 			format.json { render json: @question }
@@ -31,32 +24,48 @@ class QuestionsController < ApplicationController
 	end
 
 	def create
-		@question = Question.new(question_params)
-		saving(@question)
+		@question = Question.with_tags(question_params)
+		if @question
+			respond_to do |format|
+				format.html { redirect_to questions_path }
+				format.json { render json: @question }
+			end 
+		else 
+			respond_to do |format|
+				format.html { render 'new' }
+				format.json { render status: 404 }
+			end
+		end 			
 	end
 
 	def edit
-		@question = Question.find(params[:id])
+		@question = question.find(params[:id])
 	end
 
 	def update
-		@question = Question.update(question_params)
-		saving(@question)		
+		@question = question.update_attributes(question_params)
+		saving(@question)
 	end
 
 	def destroy
-		@question = Question.find(params[:id])
+		@question = question.find(params[:id])
 		if @question.destroy
-			render json: {}
+			respond_to do |format|
+				format.html { redirect_to questions_path}
+				format.json {}
+			end 
 		else 
-			render status: 404
+			respond_to do |format|
+				format.html { redirect_to question_path(@question) }
+				format.json { render status: 404 }
+			end			
 		end 
 	end
 
 	def saving(object)
 		if object.save
 			respond_to do |format|
-				format.html { redirect_to object.topic }
+				format.html { redirect_to questions_path }
 				format.json { render json: object }
 			end
 		else
@@ -65,11 +74,11 @@ class QuestionsController < ApplicationController
 				format.json { render status: 404 }
 			end 
 		end 
-	end	
+	end
 
 	private
 
 	def question_params
-		params.require(:question).permit(:content, :topic_id)
+		params.require(:question).permit(:content, :tags).merge(user_id: current_user.id)
 	end
 end 

@@ -1,0 +1,16 @@
+<%= form_for @question do |f| %> 
+	<%= f.text_field :content %> 
+	<%= f.text_field :tags, value: '', placeholder: 'tags' %> 
+	<%= f.submit %> 
+<% end %>  
+
+<div class="questions-list">
+	<% @questions.each do |question| %> 
+		<p> 
+			<%= question.content %>
+				<% question.tags.each do |tag| %>  
+			 		<small> #<%= tag.content %>  </small>
+				<% end %>  
+		 </p>
+	<% end %> 
+</div> 

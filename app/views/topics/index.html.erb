@@ -4,7 +4,10 @@
 		<%= f.submit %>   
 	<% end %> 
 <% end %>  
-
-<% @topics.each do |topic|  %> 
-	<h1><%= link_to topic.title, topic %></h1>
-<% end %> 
+<div class="topics-list">
+	<% @topics.each do |topic|  %> 
+		<div>
+			<p><%= link_to topic.title, topic %></p>
+		</div>
+	<% end %>
+</div>

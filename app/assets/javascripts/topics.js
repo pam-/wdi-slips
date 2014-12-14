@@ -1,40 +1,54 @@
 $('.topics.index').ready(function(){
-	// alert('hey')
+	// console.log('oh ay')
+	$('form').on('submit', function(evt){
+		evt.preventDefault();
+		var list = $('.topics-list')
+		var topicName = $('input[type="text"]').val()
+
+		$.ajax({
+			url: '/topics',
+			type: 'POST',
+			data: {
+				topic: {title: topicName}
+			},
+			success: function(){
+				list.append('<div><p>' + topicName + '</p></div>')
+			}
+		})
+	})
 })
 
 $('.topics.show').ready(function(){
-	console.log('Hey')
-
 	$('form').on('submit', function(evt){
 		evt.preventDefault();
-		var content = $('.question-content').val();
-		var topicId = $('.question-content').data('title')
-		$('.question-content').val("");
+		var content = $('.objective-content').val();
+		var topicId = $('.objective-content').data('title')
+		$('.objective-content').val("");
 		$.ajax({
-			url: '/questions',
+			url: '/objectives',
 			type: 'POST',
 			datatype: 'json',
-			data: {question: 
+			data: {objective: 
 				{ content: content,
 					topic_id: topicId
 				}
 			},
 			//to be fixed
 			success: function(){
-				$('.questions').append('<p>' + content + ' ' + '<span class="delete">x</span></p>')
+				$('.objectives').append('<p>' + content + ' ' + '<span class="delete">x</span></p>')
 			}
 		})
 	})
 	$('.delete').on('click', function(){
-		var question = $(this).parent()
-		var id = question.data('id');
+		var objective = $(this).parent()
+		var id = objective.data('id');
 		console.log(id)
 		$.ajax({
-			url: '/questions/'+id,
+			url: '/objectives/'+id,
 			type: 'DELETE',
 			success: function(){
 				console.log('gone');
-				question.hide();
+				objective.hide();
 			}
 		})
 	})
