@@ -11,7 +11,7 @@
 <h1> Latest Posts </h1>
 		<% @question.each do |question| %>
 			<div>
-				<h2><%= link_to question.title, question_path(question) %> <small> by <%= question.user %>  </small></h2>
+				<h2><%= link_to question.title, question_path(question) %> <small> by <%= question.user.username %>  </small></h2>
 				<% question.tags.each do |tag| %> 
 					<small><%= link_to "##{tag.content}", tag_path(tag) %></small>  
 				<% end %> 

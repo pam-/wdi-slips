@@ -10,6 +10,9 @@
 
 	<header>
 		<h1> <%= link_to 'wdidc-4', '/' %> </h1>
+		<% if user_signed_in? %>
+		<%= link_to 'sign out', destroy_user_session_path, method: :delete %>  
+		<% end %> 
 	</header>
 	<section class="<%= controller_name %> <%= action_name%>">
 		<%= yield %>
