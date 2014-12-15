@@ -3,9 +3,9 @@ class RegistrationsController < Devise::RegistrationsController
 	
 	protected
 
-	def after_sign_up_path_for(resource)
-		user_path(resource)
-	end
+	# def after_sign_up_path_for(resource)
+	# 	user_path(resource)
+	# end
 
   def configure_permitted_parameters
   	devise_parameter_sanitizer.for(:sign_up) do |user|
