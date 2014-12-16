@@ -1,4 +1,8 @@
 $('.questions.index').ready(function(){
+	// var converter = Markdown.getSanitizingConverter();
+	// var editor = new Markdown.Editor(converter);
+	// editor.run();
+	
 	$('form').on('submit', function(evt){
 		evt.preventDefault();
 		// console.log('saving question')
