@@ -1,0 +1,27 @@
+<section class="left">
+	<%= form_for @question do |f| %> 
+		<%= f.hidden_field :user_id, value: current_user.id %>
+		<%= f.label :title %>  
+		<%= f.text_field :title %>
+		<%= f.text_area :content %>
+		<%= f.text_field :tags, value: '', placeholder: 'tags' %> 
+		<%= f.submit "Submit Question" %> 
+	<% end %>
+</section>  
+
+<section class="right">
+	<h1> Your questions </h1>
+	<div class="questions-list">
+		<% @questions.each do |question| %> 
+			<div>
+				<h2><%= link_to question.title, question_path(question) %> 
+					<small> written <%= time_ago_in_words(question.created_at)%>  ago  
+					</small>
+				</h2>
+					<% question.tags.each do |tag| %>  
+				 		<small> <%= link_to "##{tag.content}", tag_path(tag) %>  </small>
+					<% end %>  
+			 </div>
+		<% end %>
+	</div> 
+</section> 

@@ -2,7 +2,7 @@
 	<button> <%= link_to 'Slips', '/slips'%> </button>
 <% end %>
 
-<button> <%= link_to 'Ask a Question', questions_path %> </button> 
+<button> <%= link_to 'Ask a Question', user_path(current_user) %> </button> 
 <!-- review questions will be users' posts equivalent -->
 
 <button> <%= link_to 'Learning Objectives', topics_path%> </button>

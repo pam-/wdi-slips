@@ -1,12 +1,6 @@
 class QuestionsController < ApplicationController
 	before_action :authenticate_user!
 	def index
-		@questions = current_user.questions
-		@question = Question.new
-		respond_to do |format|
-			format.html
-			format.json { render json: @question }
-		end
 	end
 
 	def show
