@@ -1,0 +1,20 @@
+<header>
+	<h1> <%= link_to 'wdidc-4', '/' %> </h1>
+	<p id="hamburger">&#9776;</p>
+	<nav>
+		<ul>
+				<% if user_signed_in? %>
+					<% if current_user.admin %>
+						<li> <%= link_to 'slips', '/slips'%> </li>
+					<% end %>
+					<li> <%= link_to 'my profile', '#' %>  </li>
+					<li> <%= link_to 'learning objectives', topics_path%> </li>
+					<li> <%= link_to 'ask a question', user_path(current_user) %> </li> 
+					<li><%= link_to 'sign out', destroy_user_session_path, method: :delete %></li>
+				<% else %> 
+					<li><%= link_to 'sign in', new_user_session_path %></li>		
+					<li><%= link_to 'sign up', new_user_registration_path %></li>
+				<% end %> 
+			</ul>			
+	</nav>
+</header>

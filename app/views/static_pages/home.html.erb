@@ -1,14 +1,7 @@
-<% if current_user.admin %>
-	<button> <%= link_to 'Slips', '/slips'%> </button>
-<% end %>
 
-<button> <%= link_to 'Ask a Question', user_path(current_user) %> </button> 
 <!-- review questions will be users' posts equivalent -->
-
-<button> <%= link_to 'Learning Objectives', topics_path%> </button>
-
 <section class="questions-list">
-<h1> Latest Posts </h1>
+<h1> Recent Questions </h1>
 		<% @question.each do |question| %>
 			<div>
 				<h2><%= link_to question.title, question_path(question) %> <small> by <%= question.user.username %>  </small></h2>

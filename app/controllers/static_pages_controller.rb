@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
 	def home
-		@question = Question.all
+		@question = Question.take(10)
 	end
 end 
