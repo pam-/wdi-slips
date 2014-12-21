@@ -2,17 +2,15 @@
 <html>
 <head>
   <title>Slips</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<%= render 'layouts/header' %> 
-	<section class="<%= controller_name %> <%= action_name%>">
+	<section class="wrapper <%= controller_name %> <%= action_name%>">
 		<%= yield %>
 	</section>
 
-	<footer> for bugs, email </footer>
-
+  <%= javascript_include_tag 'application'%>
 </body>
 </html>

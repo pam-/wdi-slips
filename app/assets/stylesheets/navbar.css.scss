@@ -1,4 +1,6 @@
 header{
+	position: relative;
+	z-index: 10;
 	padding: 5px;
 	background: #000000;
 	color: #ffffff;
@@ -14,10 +16,10 @@ header{
 		color: #fff;	
 		font-size: 30px;
 		position: absolute;
-		z-index: 1;
 		top: 0;
 		right: 10px;
-		margin-left: 25px;
+		margin-right: 25px;
+		margin-top: 25px;
 		cursor: pointer;
 		&:hover{
 			color: $accent;
@@ -31,25 +33,56 @@ header{
 }
 
 nav{
-	position: absolute;
-	right: -400px;
-	width: 20%;
-	height: 100%;
-	background: #000;
+	z-index: -10;
+	position: fixed;
+	top: -200px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width:100%;
+	background: $accent;
 	color: #fff;
 	text-align: center;
-	-webkit-transition: 0.5s;
-	li{
-		margin:20px;
-	}
+	opacity: 0;
+	backface-visibility: hidden;
+	// -webkit-transition: opacity 0.6s ease-in;
+	-webkit-transition: all 0.6s cubic-bezier(0.7, 0.01, 0.3, 1);
 	ul{
-		margin-top: 100px;
+		-webkit-transform: perspective(600px) rotateX(10deg);
+		// -webkit-transform-style: preserve-3d;
+		-webkit-transition: all 0.5s cubic-bezier(0.7, 0, 0.36, 0.63);
 		li{
-			margin-top: 50px;
+			&:first-child{
+				margin-top: 0;
+			}
+			// font-family: 'Droid Serif', serif;
+			font-size: 3em;
+			font-weight: bolder;
+			letter-spacing: 1px;
+			margin-top: 40px;
 			margin-right: 1em;
+			a:hover{
+				color: darken($accent, 20)
+			}
 		}
 	}
 }
+
 nav.active{
-	right: 0;
+	position: fixed;
+	z-index: 1;
+	top: 96px;
+	opacity: 0.8;
+	ul{
+		-webkit-transform: perspective(600px) rotateX(0deg);
+		-webkit-transition: none;
+	}
+}
+
+body.active{
+	overflow: hidden;
+}
+
+.wrapper{
+	// z-index: -10000;
 }
