@@ -1,6 +1,6 @@
 <aside class="questions-list">
 <h1> Recent Questions </h1>
-		<% @question.each do |question| %>
+		<% @questions.each do |question| %>
 			<div>
 				<h2><%= link_to question.title, question_path(question) %> <small> by <%= question.user.username %>  </small></h2>
 				<% question.tags.each do |tag| %> 
@@ -8,4 +8,9 @@
 				<% end %> 
 			</div>
 		<% end %> 
+</aside>
+
+<aside class="objective-generator">
+	<h1> Test your knowledge </h1>
+	<button> Generate a learning objective! </button>
 </aside>

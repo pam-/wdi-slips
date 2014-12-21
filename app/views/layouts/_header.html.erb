@@ -10,7 +10,7 @@
 					<% end %>
 					<li> <%= link_to 'my profile', '#' %>  </li>
 					<li> <%= link_to 'learning objectives', topics_path%> </li>
-					<li> <%= link_to 'ask a question', user_path(current_user) %> </li> 
+					<li> <%= link_to 'ask a question', new_question_path %> </li> 
 					<li><%= link_to 'sign out', destroy_user_session_path, method: :delete %></li>
 				<% else %> 
 					<li><%= link_to 'sign in', new_user_session_path %></li>		

@@ -33,8 +33,10 @@ header{
 }
 
 nav{
+	visibility: hidden;
+	overflow-y: scroll;
 	z-index: -10;
-	position: fixed;
+	position: absolute;
 	top: -200px;
 	bottom: 0;
 	left: 0;
@@ -69,7 +71,8 @@ nav{
 }
 
 nav.active{
-	position: fixed;
+	visibility: visible;
+	position: absolute;
 	z-index: 1;
 	top: 96px;
 	opacity: 0.8;
@@ -82,7 +85,3 @@ nav.active{
 body.active{
 	overflow: hidden;
 }
-
-// .wrapper.active{
-// 	z-index: -10000;
-// }
