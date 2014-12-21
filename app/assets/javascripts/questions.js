@@ -1,5 +1,4 @@
 $('.questions.new').ready(function(){
-	
 	// $('form').on('submit', function(evt){
 	// 	evt.preventDefault();
 	// 	// console.log('saving question')
