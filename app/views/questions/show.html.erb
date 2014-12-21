@@ -1,5 +1,5 @@
 <h1><%= @question.title %></h1>
-<p> <%= @question.content %> </p>
+ <%= @question.content %>
 <% @question.tags.each do |tag| %> 
 	<small> 
 		<%= link_to tag.content, tag_path(tag) %> 

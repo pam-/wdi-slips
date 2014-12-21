@@ -1,0 +1,10 @@
+<section class="new-question wmd-panel">
+	<%= form_for @question do |f| %> 
+		<%= f.hidden_field :user_id, value: current_user.id %>
+		<%= f.text_field :title, placeholder: 'Enter Title' %>
+		<div id='wmd-button-bar'></div>
+		<%= f.text_area :content, placeholder: 'Ask Question...', class: 'wmd-input' %>
+		<%= f.text_field :tags, value: '', placeholder: 'tags' %> 
+		<%= f.submit "Submit Question", class: 'button' %> 
+	<% end %>
+</section> 

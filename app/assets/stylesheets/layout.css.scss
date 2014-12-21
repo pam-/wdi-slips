@@ -40,7 +40,7 @@ footer{
 }
 
 //buttons
-button{
+button, .button{
 	padding: 15px;
 	border: none;
 	// border-radius: 20%;
@@ -98,6 +98,24 @@ button{
 		@include main-content-z-index;
 		width: 40%;	
 		right: 10%;
+	}
+	.new-question{
+		@include main-content-z-index;
+		background: none;
+		text-align: left;
+		top: 15%;
+		left: 0;
+		right: 0;
+		#wmd-button-bar{
+			width: 40%;
+			background: #fff;
+			margin: 0 auto;
+		}
+		input, textarea{
+			display: block;
+			margin: 20px auto;
+			width: 500px;
+		}
 	}
 }
 
