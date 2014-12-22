@@ -1,3 +1,4 @@
 class Topic < ActiveRecord::Base
-	has_many :questions, dependent: :destroy
+	has_many :objectives, dependent: :destroy
+	default_scope -> { order('created_at DESC') }
 end 

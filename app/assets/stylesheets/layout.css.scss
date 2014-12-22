@@ -59,6 +59,15 @@ button, .button{
 		}
 	}
 	.topics-list{
+		@include main-content-z-index;
+		right: 0;
+		left: 0;
+		background: none;
+		input{
+			display: block;
+			margin: 20px auto;
+			margin-top: 0;
+		}
 		div{
 			width: 100px;
 			display: inline-block;
@@ -103,7 +112,7 @@ button, .button{
 		@include main-content-z-index;
 		background: none;
 		text-align: left;
-		top: 15%;
+		top: 18%;
 		left: 0;
 		right: 0;
 		input, textarea{

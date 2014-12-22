@@ -1,13 +1,15 @@
-<% if current_user.admin %>
-	<%= form_for @topic do |f| %>
-		<%= f.text_field :title %>
-		<%= f.submit %>   
-	<% end %> 
-<% end %>  
-<div class="topics-list">
-	<% @topics.each do |topic|  %> 
-		<div>
-			<p><%= link_to topic.title, topic %></p>
-		</div>
+<section class="topics-list">
+	<% if current_user.admin %>
+		<%= form_for @topic do |f| %>
+			<%= f.text_field :title %>
+			<%= f.submit 'Create Topic', class: 'button' %>   
+		<% end %> 
 	<% end %>
-</div>
+	<section class="topics-container">
+		<% @topics.each do |topic|  %> 
+			<div>
+				<p><%= link_to topic.title, topic_path(topic) %></p>
+			</div>
+		<% end %>
+	</section>
+</section>
