@@ -11,6 +11,9 @@
 </aside>
 
 <aside class="objective-generator">
-	<h1> Test your knowledge </h1>
-	<button> Generate a learning objective! </button>
+	<h1> Objective of the Day </h1>
+	<% if @objective %> 
+		<%= @objective.content %> 
+	<% end %> 
+	<button> Give me another one! </button>
 </aside>

@@ -40,7 +40,7 @@ footer{
 }
 
 //buttons
-button, .button{
+button, .button, .small-button{
 	padding: 15px;
 	border: none;
 	// border-radius: 20%;
@@ -49,6 +49,9 @@ button, .button{
 	color: #fff;
 	font-weight: bolder;
 	display: inline-block; 
+}
+.small-button{
+	margin: 10px;
 }
 
 //details
@@ -154,12 +157,6 @@ textarea{
 		// 	margin-top: 20px;
 		// }
 	}
-}
-
-.small-button{
-	margin: 15px;
-	border: 1px solid $accent;
-	background: $accent;
 }
 
 //floats

@@ -10,7 +10,7 @@
 					<% if current_user.admin %>
 						<li> <%= link_to 'slips', '/slips'%> </li>
 					<% end %>
-					<li> <%= link_to 'my profile', '#' %>  </li>
+					<li> <%= link_to current_user.username, user_path(current_user) %>  </li>
 					<li> <%= link_to 'learning objectives', topics_path%> </li>
 					<li> <%= link_to 'ask a question', new_question_path %> </li> 
 					<li><%= link_to 'sign out', destroy_user_session_path, method: :delete %></li>

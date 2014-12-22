@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
 	has_many :tags, through: :taggings
   default_scope -> { order('created_at DESC') }
 
-  validates_presence_of :user_id
+  validates_presence_of :user_id, :title, :content
 
   def self.with_tags(params)
   	worked = true
