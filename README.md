@@ -2,6 +2,7 @@
 
 ##Overview:
 - This application is intended for classes and/or study groups. It showcases study topics and their learning objectives. Students can use this app to ask each other questions and review lessons.
+(This app was inspired by my teaching experience during a web development immersive (wdi).)
 
 ##User stories:
 - As a user, I can:
