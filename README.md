@@ -1,5 +1,9 @@
-#WDI - Stack Overflo
-- This application is intended for classes and/or study groups. It showcases study topics and their learning objectives.
+#WDI - Stacked Issues
+
+##Overview:
+- This application is intended for classes and/or study groups. It showcases study topics and their learning objectives. Students can use this app to ask each other questions and review lessons.
+
+##User stories:
 - As a user, I can:
   - Sign in / Sign out
   - Post a question
