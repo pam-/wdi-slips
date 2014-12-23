@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
 	belongs_to :user
+  has_many :answers
 	has_many :taggings, dependent: :destroy
 	has_many :tags, through: :taggings
   default_scope -> { order('created_at DESC') }

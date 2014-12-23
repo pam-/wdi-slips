@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :questions
-
+	has_many :answers
 	has_many :friendships, -> { where 'friendships.status = "confirmed"' }
 	has_many :friends, through: :friendships
 

@@ -1,6 +1,6 @@
 body{
+	@include forms;
 	background: #efefef;
-	// overflow: hidden;
 	height: 100%;
 	font-family: "Avenir";
 	text-align: center;
@@ -83,6 +83,7 @@ button, .button, .small-button{
 	}
 	.questions-list{
 		@include main-content-z-index;
+		height: 400px;
 		left: 10%;
 		width: 30%;
 		text-align: left;
@@ -108,6 +109,7 @@ button, .button, .small-button{
 	}
 	.objective-generator{
 		@include main-content-z-index;
+		height: 400px;
 		width: 40%;	
 		right: 10%;
 	}
@@ -118,10 +120,36 @@ button, .button, .small-button{
 		top: 18%;
 		left: 0;
 		right: 0;
-		input, textarea{
-			display: block;
-			margin: 20px auto;
-			width: 500px;
+		@include forms
+	}
+	.question-show{
+		@include main-content-z-index;
+		text-align: left;
+		padding-right: 20px;
+		width: 80%;
+		left: 0; 
+		right: 0;
+		margin: 0 auto;
+		margin-bottom: 80px;
+		h1{
+			border-bottom: 1px solid $accent;
+		}
+		p{
+			&:first-letter{
+				line-height: 2;
+				font-size: 30px;
+				font-weight: bolder;
+			}
+			line-height: 1;
+			font-size: 1.2em;
+		}
+		.answers-list{
+			// border: 1px solid $accent;
+		}
+		.new-answer{
+			textarea{
+				height: 200px;
+			}
 		}
 	}
 }
@@ -134,21 +162,8 @@ h2 {
 }
 
 //forms
-.left{
-	input, textarea{
-		display: block;
-		margin: 30px auto;
-		width: 500px;
-	}
-	#question_title{
-		display: inline-block;
-		width: 450px;
-	}
-}
 
-textarea{
-	height: 300px;
-}
+
 
 .devise-form{
 	.text-fields{

@@ -8,7 +8,7 @@
 
 <div class="objectives">
 	<% @objectives.each do |objective| %>
-		<p data-id="<%= objective.id %> "> 
+		<p data-id="<%= objective.id %>"> 
 			<%= objective.content %>  <span class="delete">x</span>
 		</p>
 	<% end %>	

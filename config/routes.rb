@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   end 
 
   resources :tags
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
+
   resources :students, only: [:index]
 
   get '/slips', to: 'objectives#slips'

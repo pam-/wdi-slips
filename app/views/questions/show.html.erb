@@ -1,7 +1,28 @@
-<h1><%= @question.title %></h1>
- <%= @question.content %>
-<% @question.tags.each do |tag| %> 
-	<small> 
-		<%= link_to tag.content, tag_path(tag) %> 
-	</small>
-<% end %> 
+<div class="question-show">
+	<h1>
+		<%= @question.title %>
+	</h1>
+		<p><%= @question.content %></p>
+
+	<% @question.tags.each do |tag| %> 
+		<small> 
+			<%= link_to tag.content, tag_path(tag) %> 
+		</small>
+	<% end %>
+	
+	<div class="new-answer">
+		<%= form_for [@question, @answer] do |f| %>
+			<%= f.hidden_field :question_id, value: @question.id %> 
+			<%= f.text_area :body %> 
+			<%= f.submit "submit answer", class: 'button' %>  
+		<% end %>
+	</div>  
+
+	<section class="answers-list">
+		<% @answers.each do |answer| %>
+			<div class="<%= answer.is_solution %> single-answer">
+				<p><%= answer.body %></p>
+			</div>
+		<% end %>  
+	</section> 	
+</div>
