@@ -131,12 +131,28 @@ button, .button, .small-button{
 		right: 0;
 		margin: 0 auto;
 		margin-bottom: 80px;
+		.voting-buttons{
+			color: #D6D4D4;
+			font-size: 2em;
+			margin: 0;
+			display: inline-block;
+			float: left;
+			ul{
+				padding: 0;
+				li{
+					cursor: pointer;
+					margin-top: 10px;
+				}
+			}
+		}
 		.question-body{
 			margin-bottom: 30px;
+			margin-left: 80px;
 			h1{
 				width: 40%;
 				margin: 0;
 				display: inline;
+				clear: left;
 			}
 			.question-author{
 				margin: 0;
@@ -144,21 +160,15 @@ button, .button, .small-button{
 				display: inline;
 				width: 40%;
 			}
-			.voting-buttons{
-				color: #D6D4D4;
-				width: 8%;
-				margin: 0;
-				display: inline-block;
-				float: left;
-				ul{
-					padding: 0;
+			.tags{
+				// padding-left: 100px;
+				.tag{
+					display: inline;
+					background: $light-accent;
+					margin-right: 3px;
+					border-radius: 15%;
+					padding: 8px;
 				}
-			}
-			.tag{
-				background: $light-accent;
-				margin-right: 3px;
-				border-radius: 15%;
-				padding: 8px;
 			}
 		}
 		.answer-title{
@@ -179,7 +189,7 @@ button, .button, .small-button{
 			// border: 1px solid $accent;
 		}
 		.answer-form{
-			border-top: 1px solid $accent;
+			border-top: 1px solid $light-accent;
 			padding-top: 20px;
 			textarea{
 				height: 200px;
