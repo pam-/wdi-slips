@@ -38,8 +38,18 @@ class QuestionsController < ApplicationController
 	end
 
 	def update
-		@question = question.update_attributes(question_params)
-		saving(@question)
+		@question = Question.find(params[:id])
+		if @question.update_attributes(question_params)
+			respond_to do |format|
+				format.html { redirect_to @question}
+				format.json {render json: @question}
+			end 
+		else 
+			respond_to do |format|
+				format.html { redirect_to @question }
+				format.json { render status: 404 }
+			end			
+		end 
 	end
 
 	def destroy
@@ -74,6 +84,6 @@ class QuestionsController < ApplicationController
 	private
 
 	def question_params
-		params.require(:question).permit(:title, :content, :tags, :user_id)
+		params.require(:question).permit(:title, :content, :tags, :points, :user_id)
 	end
 end 
