@@ -2,7 +2,7 @@ body{
 	@include forms;
 	background: #efefef;
 	height: 100%;
-	font-family: "Avenir";
+	font-family: "Avenir", sans-serif;
 	text-align: center;
 	a{
 		color: inherit;
@@ -132,6 +132,7 @@ button, .button, .small-button{
 		margin: 0 auto;
 		margin-bottom: 80px;
 		.question-body{
+			margin-bottom: 30px;
 			h1{
 				width: 40%;
 				margin: 0;
@@ -139,8 +140,25 @@ button, .button, .small-button{
 			}
 			.question-author{
 				margin: 0;
+				margin-left: 10px;
 				display: inline;
 				width: 40%;
+			}
+			.voting-buttons{
+				color: #D6D4D4;
+				width: 8%;
+				margin: 0;
+				display: inline-block;
+				float: left;
+				ul{
+					padding: 0;
+				}
+			}
+			.tag{
+				background: $light-accent;
+				margin-right: 3px;
+				border-radius: 15%;
+				padding: 8px;
 			}
 		}
 		.answer-title{

@@ -1,4 +1,5 @@
 $accent: lighten(#FF423B, 5);
+$light-accent: lighten($accent, 20);
 
 @mixin main-content-z-index{
 	background: #fff;

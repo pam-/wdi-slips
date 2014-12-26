@@ -1,13 +1,19 @@
 <div class="question-show">
 
 	<div class="question-body">	
-		<h1> <%= @question.title %> </h1>
+		<h1> <%= @question.title %></h1>
 		<p class="question-author"> by <%= link_to @user.username, @user  %>  </p>
+		<div class="voting-buttons">
+			<ul>
+				<li>&#9650;</li>
+				<li>&#9660;</li>
+			</ul>
+		</div>
 		<p><%= @question.content %></p>
 
 		<% @question.tags.each do |tag| %> 
-			<small> 
-				<%= link_to tag.content, tag_path(tag) %> 
+			<small class="tag"> 
+				<%= link_to "##{tag.content}" , tag_path(tag) %> 
 			</small>
 		<% end %>
 	</div>
