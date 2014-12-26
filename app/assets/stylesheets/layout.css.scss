@@ -139,7 +139,8 @@ button, .button, .small-button{
 			float: left;
 			ul{
 				padding: 0;
-				li{
+				text-align: center;
+				li:first-child, li:last-child{
 					cursor: pointer;
 					margin-top: 10px;
 				}

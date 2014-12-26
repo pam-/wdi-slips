@@ -1,34 +1,24 @@
-$('.questions.new').ready(function(){
-	$('form').on('submit', function(evt){
-		evt.preventDefault();
-		// console.log('saving question')
-		var userId = $('#question_user_id').val();
-		var title = $('#question_title').val();
-		var content = $('#question_content').val();
-		var tags = $('#question_tags').val();
-		$.ajax({
-			url: '/questions',
-			type: 'POST',
-			dataType: 'json',
-			data: {
-				question: {
-					user_id: userId,
-					title: title,
-					content: content,
-					tags: tags
-				}
-			},
-			success: function(data){
-				console.log(data)
-				parser(data.content)
-			}
-		})
-	})
-})
+function Counter(points){
+	this.points = points;
 
-function parser(input){
-	// var replacer = /---/;
-	// input.replace(replacer, '<code>')
+	this.addPoints = function(){
+		this.points++;
+		return this.points;
+	};
+
+	this.subPoints = function(){
+		this.points--;
+		return this.points;
+	}
 }
 
-
+$('.questions.show').ready(function(){
+	var original = new Counter(parseInt($('.js-points').html()));
+	console.log(original.points)
+	$('.js-up').on('click', function(){
+		$('.js-points').html(original.addPoints());
+	})
+	$('.js-down').on('click', function(){
+		$('.js-points').html(original.subPoints());
+	})
+})
