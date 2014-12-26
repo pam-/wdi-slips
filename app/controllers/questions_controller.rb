@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 
 	def show
 		@question = Question.find(params[:id])
+		@user = @question.user
 		@answers = @question.answers
 		@answer = Answer.new
 		respond_to do |format|

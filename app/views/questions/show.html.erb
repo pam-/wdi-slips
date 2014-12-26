@@ -1,16 +1,18 @@
 <div class="question-show">
-	<h1>
-		<%= @question.title %>
-	</h1>
+
+	<div class="question-body">	
+		<h1> <%= @question.title %> </h1>
+		<p class="question-author"> by <%= link_to @user.username, @user  %>  </p>
 		<p><%= @question.content %></p>
 
-	<% @question.tags.each do |tag| %> 
-		<small> 
-			<%= link_to tag.content, tag_path(tag) %> 
-		</small>
-	<% end %>
-	
-	<div class="new-answer">
+		<% @question.tags.each do |tag| %> 
+			<small> 
+				<%= link_to tag.content, tag_path(tag) %> 
+			</small>
+		<% end %>
+	</div>
+	<div class="answer-form">
+	<h2>Your answer</h2>
 		<%= form_for [@question, @answer] do |f| %>
 			<%= f.hidden_field :question_id, value: @question.id %> 
 			<%= f.text_area :body %> 
@@ -21,7 +23,7 @@
 	<section class="answers-list">
 		<% @answers.each do |answer| %>
 			<div class="<%= answer.is_solution %> single-answer">
-				<p><%= answer.body %></p>
+				<p><%= answer.body %> <small> posted <%= time_ago_in_words(answer.created_at) %> ago  by <%= answer.user.username %> </small></p>
 			</div>
 		<% end %>  
 	</section> 	

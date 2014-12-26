@@ -120,7 +120,7 @@ button, .button, .small-button{
 		top: 18%;
 		left: 0;
 		right: 0;
-		@include forms
+		@include forms;
 	}
 	.question-show{
 		@include main-content-z-index;
@@ -131,8 +131,22 @@ button, .button, .small-button{
 		right: 0;
 		margin: 0 auto;
 		margin-bottom: 80px;
-		h1{
-			border-bottom: 1px solid $accent;
+		.question-body{
+			h1{
+				width: 40%;
+				margin: 0;
+				display: inline;
+			}
+			.question-author{
+				margin: 0;
+				display: inline;
+				width: 40%;
+			}
+		}
+		.answer-title{
+			font-size: 0.5em;
+			float: right;
+			font-weight:lighter;
 		}
 		p{
 			&:first-letter{
@@ -146,9 +160,12 @@ button, .button, .small-button{
 		.answers-list{
 			// border: 1px solid $accent;
 		}
-		.new-answer{
+		.answer-form{
+			border-top: 1px solid $accent;
+			padding-top: 20px;
 			textarea{
 				height: 200px;
+				margin: 0;
 			}
 		}
 	}
