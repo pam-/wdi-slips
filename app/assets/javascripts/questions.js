@@ -25,13 +25,28 @@ function Counter(points, idNum){
 }
 
 $('.questions.show').ready(function(){
-	var questionId = parseInt(window.location.pathname.match(/[^/]+$/))
-	var original = new Counter(parseInt($('.js-points').html()), questionId);
+	// voting up or down
+	var questionId = $('.question-body').data('id');
+	var questionPoints = parseInt($('.js-points').html());
+	var original = new Counter(questionPoints, questionId);
 	console.log(original.points)
 	$('.js-up').on('click', function(){
 		original.addPoints();
-	})
+	});
 	$('.js-down').on('click', function(){
 		original.subPoints();
+	});
+
+	//marking answer as solution
+	$('.star').on('click', function(){
+		var answerId = $(this).parent().data('id');
+		$.ajax({
+			type: 'PATCH',
+			url: '/questions/' + questionId + '/answers/' + answerId,
+			dataType: 'json',
+			data: { answer: { is_solution: true } },
+			success: $('span').addClass('solution')
+		})
+		//solution if solution, unsolution if change your mind
 	})
 })

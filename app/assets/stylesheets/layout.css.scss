@@ -131,7 +131,7 @@ button, .button, .small-button{
 		right: 0;
 		margin: 0 auto;
 		margin-bottom: 80px;
-		.voting-buttons{
+		.voting-buttons, span{
 			color: #D6D4D4;
 			font-size: 2em;
 			margin: 0;
@@ -141,6 +141,7 @@ button, .button, .small-button{
 				padding: 0;
 				text-align: center;
 				li:first-child, li:last-child{
+					&:hover{ color: $light-accent};
 					cursor: pointer;
 					margin-top: 10px;
 				}
@@ -161,6 +162,15 @@ button, .button, .small-button{
 				display: inline;
 				width: 40%;
 			}
+			p{
+				&:first-letter{
+					line-height: 2;
+					font-size: 30px;
+					font-weight: bolder;
+				}
+				line-height: 1;
+				font-size: 1.2em;
+			}			
 			.tags{
 				// padding-left: 100px;
 				.tag{
@@ -172,23 +182,6 @@ button, .button, .small-button{
 				}
 			}
 		}
-		.answer-title{
-			font-size: 0.5em;
-			float: right;
-			font-weight:lighter;
-		}
-		p{
-			&:first-letter{
-				line-height: 2;
-				font-size: 30px;
-				font-weight: bolder;
-			}
-			line-height: 1;
-			font-size: 1.2em;
-		}
-		.answers-list{
-			// border: 1px solid $accent;
-		}
 		.answer-form{
 			border-top: 1px solid $light-accent;
 			padding-top: 20px;
@@ -197,6 +190,30 @@ button, .button, .small-button{
 				margin: 0;
 			}
 		}
+		.answers-list{
+			.single-answer{
+				// display: block;
+				&:after{
+					content: " ";
+					display: block;
+					clear: both;
+
+				}
+				span{
+					&:hover{
+						color: $light-accent;
+						cursor: pointer;
+					}
+				}
+				p{
+					margin-left: 20px;
+					float: left;
+				}
+				.solution{
+					color: green;
+				}
+			}
+		}		
 	}
 }
 

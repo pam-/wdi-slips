@@ -6,7 +6,7 @@
 				<li class="js-down">&#9660;</li>
 			</ul>
 		</div>
-	<div class="question-body">	
+	<div class="question-body" data-id="<%= @question.id %>">	
 		<h1> <%= @question.title %></h1>
 		<p class="question-author"> by <%= link_to @user.username, @user  %>  </p>
 		<p><%= @question.content %></p>
@@ -28,8 +28,10 @@
 	</div>  
 
 	<section class="answers-list">
+		<h2> <%= pluralize(@question.answers.count, 'Answer') %> </h2>
 		<% @answers.each do |answer| %>
-			<div class="<%= answer.is_solution %> single-answer">
+			<div class="single-answer" data-id="<%= answer.id %> ">
+			<span class="<% if answer.is_solution %>solution<% end %> star "> &#9733; </span>
 				<p><%= answer.body %> <small> posted <%= time_ago_in_words(answer.created_at) %> ago  by <%= answer.user.username %> </small></p>
 			</div>
 		<% end %>  
