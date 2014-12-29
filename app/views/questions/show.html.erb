@@ -1,14 +1,8 @@
 <div class="question-show">
-		<div class="voting-buttons">
-			<ul>
-				<li class="js-up">&#9650;</li>
-				<li class="js-points"> <%= @question.points %>  </li>
-				<li class="js-down">&#9660;</li>
-			</ul>
-		</div>
+<%= render 'voting', object: @question, class_name: 'question' %> 
 	<div class="question-body" data-id="<%= @question.id %>">	
 		<h1> <%= @question.title %></h1>
-		<p class="question-author"> by <%= link_to @user.username, @user  %>  </p>
+		<p class="question-author"> by <%= link_to @user.username, @user %>  </p>
 		<p><%= @question.content %></p>
 		<div class="tags">
 			<% @question.tags.each do |tag| %> 
@@ -30,8 +24,9 @@
 	<section class="answers-list">
 		<h2> <%= pluralize(@question.answers.count, 'Answer') %> </h2>
 		<% @answers.each do |answer| %>
-			<div class="single-answer" data-id="<%= answer.id %> ">
-			<span class="<% if answer.is_solution %>solution<% end %> star "> &#9733; </span>
+			<div class="answer-body" data-id="<%= answer.id %>">
+				<%= render 'voting', object: answer, class_name: 'answer' %>
+				<span class="<% if answer.is_solution %>solution<% end %> star "> &#9733; </span>
 				<p><%= answer.body %> <small> posted <%= time_ago_in_words(answer.created_at) %> ago  by <%= answer.user.username %> </small></p>
 			</div>
 		<% end %>  

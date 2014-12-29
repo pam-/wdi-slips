@@ -31,6 +31,6 @@ class AnswersController < ApplicationController
 
 	private
 	def answer_params
-		params.require(:answer).permit(:body, :question_id, :is_solution).merge(user_id: current_user.id)
+		params.require(:answer).permit(:body, :question_id, :is_solution, :points).merge(user_id: current_user.id)
 	end
 end 

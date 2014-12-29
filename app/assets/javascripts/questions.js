@@ -18,24 +18,39 @@ function Counter(points, idNum){
 			type: 'PATCH',
 			dataType: 'json',
 			url: '/questions/' + this.idNum,
-			data: { question: { points: this.points } },
-			success: $('.js-points').html(this.points)
+			data: { question: {points: this.points} },
+			success: $('.question-points').html(this.points)
 		})
 	}
 }
 
 $('.questions.show').ready(function(){
-	// voting up or down
+
+	// for question...
 	var questionId = $('.question-body').data('id');
-	var questionPoints = parseInt($('.js-points').html());
-	var original = new Counter(questionPoints, questionId);
-	console.log(original.points)
-	$('.js-up').on('click', function(){
-		original.addPoints();
-	});
-	$('.js-down').on('click', function(){
-		original.subPoints();
-	});
+	var questionPoints = $('.question-points').html();
+	var questionCounter = new Counter(questionPoints, questionId)
+	$('.question-up').on('click', function(){
+		questionCounter.addPoints();
+	})
+	$('.question-down').on('click', function(){
+		questionCounter.subPoints();
+	})
+
+	//for answers...
+	$('.answer-up').on('click', function(){
+		var answerId = $(this).parent().parent().parent().data('id');
+		var answerPoints = $(this).siblings().eq(0).html();
+		var newPoints = parseInt(answerPoints) + 1;
+
+		$.ajax({
+			type: 'PATCH',
+			dataType: 'json',
+			url: '/questions/' + questionId + '/answers/' + answerId,
+			data: { answer: {points: newPoints} },
+			success: $(this).siblings().eq(0).html(newPoints)
+		})
+	})
 
 	//marking answer as solution
 	$('.star').on('click', function(){

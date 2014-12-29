@@ -191,13 +191,12 @@ button, .button, .small-button{
 			}
 		}
 		.answers-list{
-			.single-answer{
+			.answer-body{
 				// display: block;
 				&:after{
 					content: " ";
 					display: block;
 					clear: both;
-
 				}
 				span{
 					&:hover{
