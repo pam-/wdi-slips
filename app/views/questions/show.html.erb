@@ -27,7 +27,7 @@
 			<div class="answer-body" data-id="<%= answer.id %>">
 				<%= render 'voting', object: answer, class_name: 'answer' %>
 				<span class="<% if answer.is_solution %>solution<% end %> star "> &#9733; </span>
-				<p><%= answer.body %> <small> posted <%= time_ago_in_words(answer.created_at) %> ago  by <%= answer.user.username %> </small></p>
+				<p><%= answer.body %> <small> posted <%= time_ago_in_words(answer.created_at) %> ago by <%= answer.user.username %> </small></p>
 			</div>
 		<% end %>  
 	</section> 	

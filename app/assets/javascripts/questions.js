@@ -62,6 +62,5 @@ $('.questions.show').ready(function(){
 			data: { answer: { is_solution: true } },
 			success: $('span').addClass('solution')
 		})
-		//solution if solution, unsolution if change your mind
 	})
 })

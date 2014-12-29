@@ -192,11 +192,15 @@ button, .button, .small-button{
 		}
 		.answers-list{
 			.answer-body{
-				// display: block;
+				width: 500px;
 				&:after{
 					content: " ";
 					display: block;
 					clear: both;
+				}
+				.voting-buttons{
+					font-size: 1.2em;
+					margin: 0;
 				}
 				span{
 					&:hover{
@@ -205,8 +209,13 @@ button, .button, .small-button{
 					}
 				}
 				p{
+					margin-top: 46px;
 					margin-left: 20px;
 					float: left;
+				}
+				.star{
+					margin-top: 28px;
+					float: right;
 				}
 				.solution{
 					color: green;
