@@ -36,14 +36,14 @@ $('.topics.show').ready(function(){
 			//to be fixed
 			success: function(data){
 				console.log(data)
-				$('.objectives').append('<p class="single-objective" data-id="' + data.id + '">' + content + ' ' + '<span class="delete small-button">x</span></p>')
+				$('.objectives').append('<div class="single-objective"><p>' + content + '</p><span class="delete small-button" data-id="' + data.id + '">x</span></div>')
 			}
 		})
 	})
 	$('.objectives').delegate('.delete','click', function(){
 		var topicId = $('.objectives').data('id')
-		var objective = $(this).parent()
-		var id = objective.data('id');
+		var objective = $(this).parent();
+		var id = $(this).data('id')
 		console.log(id)
 		$.ajax({
 			url: '/topics/' + topicId + '/objectives/' + id,
