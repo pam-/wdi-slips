@@ -4,7 +4,7 @@ $('.topics.index').ready(function(){
 		evt.preventDefault();
 		var list = $('.topics-list')
 		var topicName = $('input[type="text"]').val()
-
+		$('input[type="text"]').val('')
 		$.ajax({
 			url: '/topics',
 			type: 'POST',
