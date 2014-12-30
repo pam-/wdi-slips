@@ -81,37 +81,34 @@ button, .button, .small-button{
 			margin: 10px;
 		}
 	}
-	.questions-list{
+	.main-container{
 		@include main-content-z-index;
+		@include scroll-bar;
+		@include list-header1;
+		padding-top: 0;
 		height: 400px;
-		left: 10%;
-		width: 30%;
-		text-align: left;
-		overflow-y: scroll;
-		&::-webkit-scrollbar{
-				width: 3px;
-				background-color: #F5F5F5;
-			}
-		&::-webkit-scrollbar-thumb{
-				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-				background-color: lighten($accent, 10);
-			}
-		&::-webkit-scrollbar-track{
-				-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-				background-color: #F5F5F5;
-			}
-		h1, div{
-			margin-left: 20px;
-		}
+		left: 0; right: 0;
+		margin: 0 auto;
 		div{
 			position: relative;
 		}
-	}
-	.objective-generator{
-		@include main-content-z-index;
-		height: 400px;
-		width: 40%;	
-		right: 10%;
+		h2{
+			font-weight: 400;
+		}
+		.single-question{
+			.tag{
+				font-size: 0.8em;
+				display: inline;
+				background: $light-accent;
+				margin-right: 10px;
+				padding: 2px;
+			}
+			&:after{
+				display: block;
+				content: " ";
+				clear: both;
+			}
+		}
 	}
 	.new-question{
 		@include main-content-z-index;
@@ -138,6 +135,7 @@ button, .button, .small-button{
 			display: inline-block;
 			float: left;
 			ul{
+				margin: 0;
 				padding: 0;
 				text-align: center;
 				li:first-child, li:last-child{
@@ -149,18 +147,19 @@ button, .button, .small-button{
 		}
 		.question-body{
 			margin-bottom: 30px;
-			margin-left: 80px;
 			h1{
 				width: 40%;
 				margin: 0;
+				margin-left: 49px;
 				display: inline;
 				clear: left;
-			}
-			.question-author{
-				margin: 0;
-				margin-left: 10px;
-				display: inline;
-				width: 40%;
+				.question-author{
+					font-weight: lighter;
+					margin: 0;
+					margin-left: 10px;
+					display: inline;
+					width: 40%;
+				}
 			}
 			p{
 				&:first-letter{
@@ -176,11 +175,13 @@ button, .button, .small-button{
 				.tag{
 					display: inline;
 					background: $light-accent;
-					margin-right: 3px;
-					border-radius: 15%;
-					padding: 8px;
+					margin-right: 10px;
+					padding: 2px;
 				}
 			}
+			p, .tags{
+				margin-left: 80px;
+			}			
 		}
 		.answer-form{
 			border-top: 1px solid $light-accent;

@@ -1,0 +1,24 @@
+.pagination{
+	// background: $light-accent;
+	width: 100%;
+	margin-bottom: 30px;
+	.disabled{
+		border: 1px solid #efefef;
+	}
+	.current{
+		background: $accent;
+	}
+	a{
+		border: 1px solid $light-accent;
+	}
+	a, .current, .disabled{
+		padding: 5px;
+
+	}
+	&:after{
+		content: " ";
+		display: block;
+		clear: both;
+		height: 0;
+	}
+}

@@ -1,15 +1,34 @@
-<section class="right">
-	<h1> Your questions </h1>
-		<% @questions.each do |question| %> 
-			<div>
-				<h2><%= link_to question.title, question_path(question) %> 
-					<small> written <%= time_ago_in_words(question.created_at)%>  ago  
-					</small>
-				</h2>
-					<% question.tags.each do |tag| %>  
-				 		<small> <%= link_to "##{tag.content}", tag_path(tag) %>  </small>
-					<% end %>  
-			 </div>
-		<% end %>
-		<%= will_paginate @questions %> 
-</section> 
+<section class="main-container">
+	<section class="questions-list">
+	<h1> <span><%= @questions.count %> </span> Questions </h1>
+	<% @questions.each do |question| %> 
+		<div class="single-question">
+			<h2>
+				<%= link_to question.title, question_path(question) %> 
+				<% question.tags.each do |tag| %>  
+			 		<span class="tag"> <%= link_to "##{tag.content}", tag_path(tag) %>  </span>
+				<% end %>
+				<small> 
+					written <%= time_ago_in_words(question.created_at)%>  ago  
+				</small>
+			</h2> 
+		 </div>
+	<% end %>
+	<%= will_paginate @questions, param_name: 'question' %>
+</section>
+
+<section class="answers-list">
+	<h1> <span><%= @answers.count %> </span> Answers </h1>
+	<% @answers.each do |answer| %>
+		<div class="single-answer">
+			<h2>
+				<%= link_to answer.body, question_path(answer.question) %> 
+				<small> 
+					written <%= time_ago_in_words(answer.created_at)%>  ago  
+				</small>
+			</h2> 
+		 </div>
+	<% end %>
+		<%= will_paginate @answers, param_name: 'answer' %>
+</section>
+</section>
