@@ -12,7 +12,7 @@ $('.topics.index').ready(function(){
 				topic: {title: topicName}
 			},
 			success: function(){
-				list.prepend('<div><p>' + topicName + '</p></div>')
+				$('.topics-container').prepend('<div><p>' + topicName + '</p></div>')
 			}
 		})
 	})
