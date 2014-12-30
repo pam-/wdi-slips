@@ -11,8 +11,8 @@ $('.topics.index').ready(function(){
 			data: {
 				topic: {title: topicName}
 			},
-			success: function(){
-				$('.topics-container').prepend('<div><p>' + topicName + '</p></div>')
+			success: function(data){
+				$('.topics-container').prepend('<div><p><a href="/topics/' + data.id + '">' + topicName + '</a></p></div>')
 			}
 		})
 	})

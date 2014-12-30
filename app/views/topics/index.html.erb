@@ -4,6 +4,8 @@
 			<%= f.text_field :title %>
 			<%= f.submit 'Create Topic', class: 'button' %>   
 		<% end %> 
+	<% else %>
+		<h1> Choose a Topic </h1> 
 	<% end %>
 	<section class="topics-container">
 		<% @topics.each do |topic|  %> 

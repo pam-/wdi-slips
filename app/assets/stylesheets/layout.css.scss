@@ -117,6 +117,9 @@ button, .button, .small-button{
 				margin: 0;
 			}
 		}
+		.white-link{
+			color: #fff;
+		}
 	}
 	.list-container{
 		@include main-content-z-index;
