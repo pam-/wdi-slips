@@ -10,7 +10,6 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic = Topic.find(params[:id])
-		@objective = Question.new
 		@objectives = @topic.objectives
 		respond_to do |format|
 			format.html

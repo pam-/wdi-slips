@@ -89,6 +89,22 @@ button, .button, .small-button{
 			}
 		}
 	}
+	.topic-show{
+		@include main-content-z-index;
+		background: none;
+		right: 0;
+		left: 0;
+		text-align: center;
+		.single-objective{
+			background: #fff;
+			width: 500px;
+			margin: 0 auto;
+			.delete{
+				cursor: pointer;
+				padding: 5px;
+			}
+		}
+	}
 	.list-container{
 		@include main-content-z-index;
 		@include scroll-bar;
