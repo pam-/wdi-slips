@@ -66,6 +66,7 @@ button, .button, .small-button{
 		right: 0;
 		left: 0;
 		background: none;
+		text-align: center;
 		input{
 			display: block;
 			margin: 20px auto;
@@ -79,9 +80,16 @@ button, .button, .small-button{
 			border-radius: 100%;
 			padding: 30px;
 			margin: 10px;
+			overflow: hidden;
+			p{
+				margin: 0;
+				position: relative;
+			  top: 50%;
+			  -webkit-transform: translateY(-50%);
+			}
 		}
 	}
-	.main-container{
+	.list-container{
 		@include main-content-z-index;
 		@include scroll-bar;
 		@include list-header1;
@@ -107,6 +115,16 @@ button, .button, .small-button{
 				display: block;
 				content: " ";
 				clear: both;
+			}
+		}
+		h1{
+			a{
+				color: #fff;
+				float: right;
+				font-weight: lighter;
+				&:hover{
+					color: #000;
+				}
 			}
 		}
 	}
@@ -234,9 +252,6 @@ h2 {
 }
 
 //forms
-
-
-
 .devise-form{
 	.text-fields{
 		margin-top: 30px

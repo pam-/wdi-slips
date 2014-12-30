@@ -1,5 +1,5 @@
-<aside class="questions-list">
-<h1> Recent Questions </h1>
+<aside class="list-container">
+<h1> Recent Questions <span> <%= link_to 'Ask a question', new_question_path %>  </span> </h1>
 		<% @questions.each do |question| %>
 			<div>
 				<h2><%= link_to question.title, question_path(question) %> <small> by <%= link_to question.user.username, question.user %>  </small></h2>
@@ -8,14 +8,4 @@
 				<% end %> 
 			</div>
 		<% end %> 
-</aside>
-
-<aside class="objective-generator">
-	<h1> Objective of the Day </h1>
-	<% if @objective %> 
-		<p>
-			<%= @objective.content %> 
-		</p>
-	<% end %> 
-	<button> Another one!! </button>
 </aside>
