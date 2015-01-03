@@ -68,9 +68,40 @@ $('.questions.show').ready(function(){
 
 $('.questions.new').ready(function(){
 
-	$('textarea').on('keyup', function(){
-		$('.preview').html('<p>' + $(this).val() + '</p>');
-	})
+	$('.editable').on('keyup', function(e){
+		var sel = getSelected();
+		var node = sel.focusNode.parentNode;
+		var nodeText = $(node).text();
+
+		var keyShortcut = /[^\S\r\n]{3}/g //matches 3 consecutive spaces, NO new line or return values or tabs => only anything that is not within the brackets
+
+		if (e.keyCode == 13) {
+			document.execCommand('formatBlock', false, 'p');
+			return false;
+		};
+
+		if (nodeText.match(keyShortcut) && $(node).is('p')) {
+			$(node).replaceWith('<code></code>');
+		} 
+		else if (nodeText.match(keyShortcut) && $(node).is('code')){
+			$(node).replaceWith('');
+		};
+
+		$('.preview').html($(this).html());
+	})	
 	
-	
+	function getSelected(){
+		if (window.getSelection){
+			return window.getSelection();
+		} else if (document.getSelection){
+			return document.getSelection();
+		} else {
+			var selection = document.selection && document.selection.createRange();
+			if(selection.text){
+				return selection.text;
+			}
+			return false
+		}
+		return false
+	}
 })
