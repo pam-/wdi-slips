@@ -168,6 +168,15 @@ button, .button, .small-button{
 		left: 0;
 		right: 0;
 		@include forms;
+		.preview{
+			height: 500px;
+			width: 100%;
+		}
+		.editable{
+			width: 500px;
+			height: 300px;
+			margin: 50px auto;
+		}
 	}
 	.question-show{
 		@include main-content-z-index;

@@ -1,11 +1,21 @@
 <section class="new-question">
-	<%= form_for @question do |f| %> 
-		<%= f.hidden_field :user_id, value: current_user.id %>
-		<%= f.text_field :title, placeholder: 'Enter Title' %>
-		<%= f.text_area :content, placeholder: 'Ask Question...' %>
-		<%= f.text_field :tags, value: '', placeholder: 'tags' %> 
-		<%= f.submit "Submit Question", class: 'button' %> 
-	<% end %>
+<div class="editable" contenteditable="true">
+	
+</div>
+	<!-- <form>  -->
+	<%#= form_for @question do |f| %> 
+		<%#= f.hidden_field :user_id, value: current_user.id %>
+		<%#= f.text_field :title, placeholder: 'Enter Title' %>
+		<!-- <div class="editable" data-placeholder="Ask Question"> -->
+			<%#= f.text_area :content %>
+		<!-- </div> -->
+		<%#= f.text_field :tags, value: '', placeholder: 'tags' %> 
+		<!-- <input type="submit" value="Submit Question" class="button" >  -->
+	<!-- </form> -->
+	<%# end %>
+	 <button class="code"> code </button> 
+
+	<div class="preview"></div>
 </section> 
 
  

@@ -64,3 +64,13 @@ $('.questions.show').ready(function(){
 		})
 	})
 })
+
+
+$('.questions.new').ready(function(){
+
+	$('textarea').on('keyup', function(){
+		$('.preview').html('<p>' + $(this).val() + '</p>');
+	})
+	
+	
+})
