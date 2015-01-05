@@ -190,6 +190,7 @@ button, .button, .small-button{
 		code{
 			background: $accent;
 			margin-left: 20px;
+			font-weight: lighter;
 		}
 		// .button{
 		// 	// text-align: center;
@@ -252,6 +253,8 @@ button, .button, .small-button{
 				background: $light-accent;
 				padding: 5px;
 				margin-left: 20px;
+				font-size: 10px;
+				font-weight: lighter;
 			}		
 			.tags{
 				// padding-left: 100px;
