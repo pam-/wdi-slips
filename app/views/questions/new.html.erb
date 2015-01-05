@@ -1,9 +1,15 @@
 <section class="new-question">
-	<div class="editable" contenteditable="true">
-		<h1>Add question title </h1>
-		<p> Add text here </p>
-	</div>
-	<div class="preview"></div>
+	<form>
+		<input type="hidden" name="full-host" value="<%= request.env["HTTP_HOST"]%>">
+		<input type="hidden" name="user" value="<%= current_user.id %>">
+		<div class="editable" contenteditable="true">
+			<h2>Add question title </h2>
+			<p> Add text here </p>
+		</div>
+		<div class="preview"></div>
+		<input type="text" name="tags" placeholder="tags">
+		<input type="submit" class="button" value="Post">
+	</form>
 </section>
 
  

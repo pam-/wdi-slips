@@ -72,15 +72,15 @@ $('.questions.new').ready(function(){
 		var sel = getSelected();
 		var node = sel.focusNode.parentNode;
 		var nodeText = $(node).text();
-
 		var keyShortcut = /[^\S\r\n]{3}/g //matches 3 consecutive spaces, NO new line or return values or tabs => only anything that is not within the brackets
+		var notEditable = $(node).is('div') && !$(node).hasClass('editable')
 
 		if (e.keyCode == 13) {
 			document.execCommand('formatBlock', false, 'p');
 			return false;
 		};
 
-		if (nodeText.match(keyShortcut) && $(node).is('p')) {
+		if (nodeText.match(keyShortcut) && ($(node).is('p') || notEditable)) {
 			$(node).replaceWith('<code></code>');
 		} 
 		else if (nodeText.match(keyShortcut) && $(node).is('code')){
@@ -88,7 +88,31 @@ $('.questions.new').ready(function(){
 		};
 
 		$('.preview').html($(this).html());
-	})	
+	})
+
+	$('form').on('submit', function(e){
+		e.preventDefault();
+		// console.log($('.editable').html())
+		var post = $('.editable').html().split('</h2>'); 
+		var title = post[0].concat('</h2>');
+		var content = post[1];
+		var user_id = $('input[name="user"]').val();
+		var tags = $('input[name="tags"]').val();
+		$.ajax({
+			type: 'POST',
+			url: '/questions',
+			dataType: 'json',
+			data: { question: { title: title, content: content, user_id: user_id, tags: tags } },
+			success: function(data){
+				var protocol = location.protocol;
+				var slashes = protocol.concat("//");
+				var host = $('input[name="full-host"]').val()
+				var fullUrl = slashes.concat(host.concat('/questions/' + data.id))
+				window.location.href = fullUrl;
+				console.log(fullUrl)
+			}
+		})
+	})
 	
 	function getSelected(){
 		if (window.getSelection){

@@ -46,3 +46,9 @@ $light-accent: lighten($accent, 20);
 		height: 300px;
 	}
 }
+
+@mixin clearFix{
+	content: " ";
+	display: block;
+	clear: both;
+}

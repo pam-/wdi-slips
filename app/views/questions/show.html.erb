@@ -1,8 +1,10 @@
 <div class="question-show">
 	<div class="question-body" data-id="<%= @question.id %>">	
 	<%= render 'voting', object: @question, class_name: 'question' %>
-		<h1> <%= @question.title %><small class="question-author"> by <%= link_to @user.username, @user %>  </small></h1>
-		<p><%= @question.content %></p>
+	<div class="inside-question">
+		<%= @question.title.html_safe %><small class="question-author"> by <%= link_to @user.username, @user %></small>
+		<%= @question.content.html_safe %>
+	</div>
 		<div class="tags">
 			<% @question.tags.each do |tag| %> 
 				<li class="tag"> 

@@ -20,6 +20,7 @@ class QuestionsController < ApplicationController
 
 	def create
 		@question = Question.with_tags(question_params)
+		puts @question
 		if @question
 			respond_to do |format|
 				format.html { redirect_to questions_path }
